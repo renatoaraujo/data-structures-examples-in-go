@@ -7,19 +7,37 @@ import (
 )
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-	sll := linked_lists.NewSinglyLinkedListFromArray(arr)
-	sll.Append(10)
+	arr := []int{}
+	dll := linked_lists.NewDoublyLinkedListFromArray(arr)
+	dll.Append(10)
+	fmt.Println(dll.Display())
+	dll.Append(12)
+	fmt.Println(dll.Display())
 
-	fmt.Println(sll.Display())
-	sll.Append(12)
-	fmt.Println(sll.Display())
-	sll.Prepend(13)
-	fmt.Println(sll.Display())
-
-	err := sll.Delete(5)
+	err := dll.Delete(12)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(sll.Display())
+	fmt.Println(dll.Display())
+
+	dll.Prepend(75)
+	fmt.Println(dll.Display())
+
+	err = dll.DeleteHead()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(dll.Display())
+
+	dll.Append(12)
+	fmt.Println(dll.Display())
+	dll.Append(123)
+	fmt.Println(dll.Display())
+
+	err = dll.DeleteTail()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(dll.Display())
+
 }
